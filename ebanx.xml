@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install version="1.0" type="plugin" group="vmpayment" method="upgrade">
+  <name>Ebanx</name>
+  <creationDate>Abril 2013</creationDate>
+  <author>EBANX Global</author>
+  <authorUrl>https://www.ebanx.com</authorUrl>
+  <copyright>EBANX, all rights reserved</copyright>
+  <license>http://opensource.org/licenses/BSD-3-Clause</license>
+  <version>1.0.0</version>
+  <description>Receive payments in Lation America.</description>
+  <files>
+    <filename plugin="ebanx">ebanx.php</filename>
+    <filename>ebanx_translation.php</filename>
+    <filename>index.html</filename>
+    <folder>ebanx-php</folder>
+  </files>
+  <media folder="images" destination="/images/stories/virtuemart/payment">
+    <filename>ebanx.png</filename>
+  </media>
+  <params addpath="/administrator/components/com_virtuemart/elements">
+    <param type="vmjpluginwarning" />
+    <param type="spacer" default="" level="level1" />
+
+    <param type="spacer" default="&lt;strong&gt;EBANX&lt;/strong&gt; Payments in Latin America" level="level1" />
+    <param type="spacer" default="" level="level1" />
+
+    <param type="text" name="integration_key" size="128" label="Integration key" default="Enter your integration key" description="You need an integration key to use EBANX" />
+    <param type="spacer" default="" level="level1" />
+
+    <param type="radio" name="test_mode" label="Enable test mode" default="1" description="Enables or disabled test mode">
+      <option value="0">COM_VIRTUEMART_NO</option>
+      <option value="1">COM_VIRTUEMART_YES</option>
+    </param>
+    <param type="spacer" default="" level="level1" />
+
+    <param type="spacer" default="&lt;strong&gt;Payment status&lt;/a&gt;&lt;/strong&gt; - choose which status will appear in VirtueMart" />
+    <param type="spacer" default="" level="level1" />
+
+    <param name="status_pending" type="vmorderstate" default="P" label="Payment pending (PE)" description="The payment is pending confirmation." />
+    <param name="status_paid" type="vmorderstate" default="U" label="Payment confirmed (CO)" description="The payment was received by EBANX." />
+    <param name="status_cancelled" type="vmorderstate" default="X" label="Payment cancelled (CA)" description="The payment was not paid and therefore cancelled." />
+  </params>
+</install>
