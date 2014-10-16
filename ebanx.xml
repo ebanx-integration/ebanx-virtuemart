@@ -7,15 +7,14 @@
   <copyright>EBANX, all rights reserved</copyright>
   <license>http://opensource.org/licenses/BSD-3-Clause</license>
   <version>1.0.0</version>
-  <description>Receive payments in Lation America.</description>
+  <description>Receive payments in Latin America.</description>
   <files>
     <filename plugin="ebanx">ebanx.php</filename>
-    <filename>ebanx_translation.php</filename>
     <filename>index.html</filename>
     <folder>ebanx-php</folder>
   </files>
   <media folder="images" destination="/images/stories/virtuemart/payment">
-    <filename>ebanx.png</filename>
+    <filename>ebanx.jpg</filename>
   </media>
   <params addpath="/administrator/components/com_virtuemart/elements">
     <param type="vmjpluginwarning" />
