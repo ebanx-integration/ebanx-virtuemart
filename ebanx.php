@@ -298,6 +298,57 @@ class plgVmPaymentEbanx extends vmPSPlugin
     }
   }
 
+
+  /**
+   * Identifies customer's country
+   * @param  StdClass $plugin
+   * @return string
+   */
+  protected function renderPluginName ($plugin)
+  {
+      $cart = VirtueMartCart::getCart();
+
+      $country = $cart->BTaddress['fields']['virtuemart_country_id']['country_2_code'];
+      $span_id = $cart->virtuemart_paymentmethod_id;
+
+      if ($country == 'BR')
+      {
+          $plugin_name = 'EBANX - Boleto Bancário - TEF';
+          $plugin_desc = 'Brazil Only';
+      }
+      if ($country == 'PE')
+      {
+          $plugin_name = 'PagoEfectivo, SafetyPay';
+          $plugin_desc = 'Peru Only';
+      }
+
+      if ($country == '')
+      {
+          $plugin_name = 'EBANX - Boleto, TEF, PagoEfectivo, SafetyPay';
+          $plugin_desc = 'Brazil and Peru Only';      
+      }
+
+      $return = '';
+
+      $description = '';
+
+      $logosFieldName = $this->_psType . '_logos';
+      $logos = $plugin->$logosFieldName;
+
+      if (!empty($logos))
+      {
+          $return = $this->displayLogos ($logos) . ' ';
+      }
+
+      if (!empty($plugin_name))
+      {
+          $description = '<span class="' . $this->_type . '_description">' . $plugin_desc . '</span>';
+          $pluginName = $return . '<span class="' . $this->_type . '_name">' . $plugin_name . '</span>' . $description;
+      }
+
+      return $pluginName;
+  }
+
   /**
    * Creates EBANX payment
    * @param  VirtueMartCart $cart
