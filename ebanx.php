@@ -389,6 +389,7 @@ class plgVmPaymentEbanx extends vmPSPlugin
       , 'phone_number'      => ($orderBilling->phone_1) ?: $orderBilling->phone_2
       , 'merchant_payment_code' => $orderId . $testOrderId
       , 'order_number'          => $orderId
+      , 'plugin_source'         => 'Virtuemart' . vmVersion::$RELEASE
     );
 
     $response = Ebanx\Ebanx::doRequest($requestData);
