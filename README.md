@@ -1,3 +1,5 @@
+> ⚠️ **DEPRECATED** — This repository is no longer maintained. Please refer to the [official EBANX documentation](https://www.ebanx.com/business/en/developers) for up-to-date integration options.
+
 # EBANX payment gateway for VirtueMart/Joomla
 
 This plugin allows you to integrate your VirtueMart store with the EBANX payment gateway.
